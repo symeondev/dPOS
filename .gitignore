@@ -55,7 +55,7 @@
 *.identcache
 *.projdata
 *.tvsconfig
-#*.dsk
+*.dsk
 
 # Delphi history and backups
 __history/
