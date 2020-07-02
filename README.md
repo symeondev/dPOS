@@ -7,7 +7,7 @@
 - Add more options in statistics report (averages per order and per date, line count, grpoup count, ...)
 - Pricelists per date and product
 
-2.3 - Date: 23/03/2020
+### 2.3 - Date: 23/03/2020
 - Main form
 - Login form
 - Pay order form
@@ -31,7 +31,7 @@ Features:
 - Dynamically create UI (admin menu, logo and item groups and buttons)
 
 
-2.2
+## 2.2
 - Main form
 - Login form
 - Pay order form
