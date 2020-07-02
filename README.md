@@ -31,7 +31,7 @@ Features:
 - Dynamically create UI (admin menu, logo and item groups and buttons)
 
 
-## 2.2
+### 2.2
 - Main form
 - Login form
 - Pay order form
@@ -51,7 +51,7 @@ Features:
 - Print client and/or kitchen tickets option
 
 
-2.1
+### 2.1
 - Main form
 - Login form
 - Pay order form
@@ -69,7 +69,7 @@ Features:
 - Test mode
 
 
-2.0 - Date: February of 2020
+### 2.0 - Date: February of 2020
 - Main form
 - Login form
 - Pay order form
@@ -84,14 +84,14 @@ Features:
 - Backup database
 
 
-1.1 - Date: June of 2019
+### 1.1 - Date: June of 2019
 - Main form
 - Login form
 - Pay order form
 - Print kitchen tickets
 - Print statistics
 
-1.0
+### 1.0
 - Main form
 - Login form
 - Pay order form
