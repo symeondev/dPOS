@@ -42,6 +42,7 @@ Features:
 - Orders list and print
 - Parameters management
 - Users management
+
 Features:
 - Advertisements
 - Lottery module
@@ -60,6 +61,7 @@ Features:
 - Print order copy by id or lottery number
 - Orders list and print
 - Parameters management
+
 Features:
 - Advertisements
 - Lottery module
@@ -75,6 +77,7 @@ Features:
 - Print kitchen tickets
 - Print statistics
 - Print order copy by id or lottery number
+
 Features:
 - Advertisements
 - Lottery module
