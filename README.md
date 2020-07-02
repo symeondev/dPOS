@@ -4,7 +4,7 @@
 
 
 [To do] - Date: 17/06/2020
-- Add more options in statistics report (averages per order and per date, line count, grpoup count, ...)
+- Add more options in statistics report (averages per order and per date, line count, group count, ...)
 - Pricelists per date and product
 
 2.3 - Date: 23/03/2020
