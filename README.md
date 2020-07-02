@@ -1,9 +1,9 @@
 # dPOS - Point Of Sale System
 
-(c) 2019-2020 Simeonidis Dimitrios
+© 2019-2020 Simeonidis Dimitrios
 
 
-2.4 [To do] - Date: 17/06/2020
+[To do] - Date: 17/06/2020
 - Add more options in statistics report (averages per order and per date, line count, grpoup count, ...)
 - Pricelists per date and product
 

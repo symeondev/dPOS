@@ -583,6 +583,7 @@ object frmOrders: TfrmOrders
       Width = 89
       Height = 26
       Anchors = [akTop, akRight]
+      Color = 14346731
       DataField = 'TotalAmount'
       DataSource = dsOrders
       Font.Charset = DEFAULT_CHARSET
@@ -591,6 +592,7 @@ object frmOrders: TfrmOrders
       Font.Name = 'Arial Unicode MS'
       Font.Style = [fsBold]
       ParentFont = False
+      ReadOnly = True
       TabOrder = 3
     end
     object bPrint: TButton
