@@ -7,7 +7,7 @@
 - Add more options in statistics report (averages per order and per date, line count, group count, ...)
 - Pricelists per date and product
 
-2.3 - Date: 23/03/2020
+### 2.3 - Date: 23/03/2020
 - Main form
 - Login form
 - Pay order form
@@ -20,6 +20,7 @@
 - Users management
 - Items management
 - Item groups management
+
 Features:
 - Advertisements
 - Lottery module
@@ -30,7 +31,7 @@ Features:
 - Dynamically create UI (admin menu, logo and item groups and buttons)
 
 
-2.2
+### 2.2
 - Main form
 - Login form
 - Pay order form
@@ -41,6 +42,7 @@ Features:
 - Orders list and print
 - Parameters management
 - Users management
+
 Features:
 - Advertisements
 - Lottery module
@@ -49,7 +51,7 @@ Features:
 - Print client and/or kitchen tickets option
 
 
-2.1
+### 2.1
 - Main form
 - Login form
 - Pay order form
@@ -59,6 +61,7 @@ Features:
 - Print order copy by id or lottery number
 - Orders list and print
 - Parameters management
+
 Features:
 - Advertisements
 - Lottery module
@@ -66,7 +69,7 @@ Features:
 - Test mode
 
 
-2.0 - Date: February of 2020
+### 2.0 - Date: February of 2020
 - Main form
 - Login form
 - Pay order form
@@ -74,20 +77,21 @@ Features:
 - Print kitchen tickets
 - Print statistics
 - Print order copy by id or lottery number
+
 Features:
 - Advertisements
 - Lottery module
 - Backup database
 
 
-1.1 - Date: June of 2019
+### 1.1 - Date: June of 2019
 - Main form
 - Login form
 - Pay order form
 - Print kitchen tickets
 - Print statistics
 
-1.0
+### 1.0
 - Main form
 - Login form
 - Pay order form
