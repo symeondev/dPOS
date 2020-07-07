@@ -126,7 +126,8 @@ begin
   lEventName.Caption := p.EventName;
   lCopy.Enabled := isCopy;
   clientPages := clientPagesPrinted;
-  bSummary.Enabled := clientPages <= 0;
+//  bSummary.Enabled := clientPages <= 0;
+  bSummary.Enabled := (p.PrintedTickets and PT_CLIENTTICKET) <> PT_CLIENTTICKET;
   maxItemsCount := MaxOrderItems(orderId);
   if maxItemsCount < maxItems then
     maxItemsCount := maxItems;

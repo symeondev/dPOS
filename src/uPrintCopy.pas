@@ -60,7 +60,7 @@ implementation
 {$R *.dfm}
 
 uses
-  uClientTicket, uPrintTicket, udmMain;
+  uClientTicket, uPrintTicket, uAdTicket, udmMain;
 
 
 function ShowPrintCopyModal(AnOwner: TComponent): Integer;
@@ -115,10 +115,10 @@ begin
 
     if orderId > 0 then
     begin
-      clientPages := 1;
+      clientPages := 0;
       if (appParams.PrintedTickets and PT_CLIENTTICKET) = PT_CLIENTTICKET then
       begin
-        clientPages := 1;
+        Inc(clientPages);
         CreateClientTicket(Self);
         frmClientTicket.PrepareTicketPrint(orderId, true, appParams);
         if (dmMain.TestMode and TM_PRINTPREVIEW) = TM_PRINTPREVIEW then
@@ -126,6 +126,17 @@ begin
         else
           frmClientTicket.PrintTicket;
         ReleaseClientTicket;
+      end;
+      if (appParams.PrintedTickets and PT_ADTICKET) = PT_ADTICKET then
+      begin
+        Inc(clientPages);
+        CreateAdTicket(Self);
+        frmAdTicket.PrepareTicketPrint(orderId, true, appParams);
+        if (dmMain.TestMode and TM_PRINTPREVIEW) = TM_PRINTPREVIEW then
+          frmAdTicket.PreviewTicket
+        else
+          frmAdTicket.PrintTicket;
+        ReleaseAdTicket;
       end;
       if (appParams.PrintedTickets and PT_KITCHENTICKETS) = PT_KITCHENTICKETS then
       begin

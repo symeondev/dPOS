@@ -6,7 +6,7 @@ uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, jpeg, ExtCtrls, StdCtrls, Provider, DBTables, DB, DBClient,
   DBLocal, DBLocalB, Grids, DBGrids, Mask, DBCtrls, uCommon, uClientTicket,
-  uPrintTicket;
+  uPrintTicket, uAdTicket;
 
 type
   TfrmOrders = class(TForm)
@@ -133,10 +133,11 @@ var
   clientPages: Integer;
 begin
   orderId := qOrdersList.FieldByName('Id').AsInteger;
+
   clientPages := 0;
   if (appParams.PrintedTickets and PT_CLIENTTICKET) = PT_CLIENTTICKET then
   begin
-    clientPages := 1;
+    Inc(clientPages);
     CreateClientTicket(Self);
     frmClientTicket.PrepareTicketPrint(orderId, true, appParams);
     if (dmMain.TestMode and TM_PRINTPREVIEW) = TM_PRINTPREVIEW then
@@ -145,6 +146,19 @@ begin
       frmClientTicket.PrintTicket;
     ReleaseClientTicket;
   end;
+
+  if (appParams.PrintedTickets and PT_ADTICKET) = PT_ADTICKET then
+  begin
+    Inc(clientPages);
+    CreateAdTicket(Self);
+    frmAdTicket.PrepareTicketPrint(orderId, true, appParams);
+    if (dmMain.TestMode and TM_PRINTPREVIEW) = TM_PRINTPREVIEW then
+      frmAdTicket.PreviewTicket
+    else
+      frmAdTicket.PrintTicket;
+    ReleaseAdTicket;
+  end;
+
   if (appParams.PrintedTickets and PT_KITCHENTICKETS) = PT_KITCHENTICKETS then
   begin
     CreatePrintTicket(Self);

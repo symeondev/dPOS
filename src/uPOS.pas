@@ -7,7 +7,7 @@ uses
   Dialogs, StdCtrls, Buttons, ComCtrls, DB, DBTables, Provider, DBClient,
   DBLocal, DBLocalB, Grids, DBGrids, ExtCtrls, uLogin, udmMain, jpeg, Mask,
   DBCtrls, uPrintTicket, uPay, uStats, uClientTicket, uPrintCopy, uParams,
-  uOrders, uUsers, uItems, uItemGroups, uCommon;
+  uOrders, uUsers, uItems, uItemGroups, uCommon, uAdTicket;
 
 type
   TAccessDBGrid = class(TDBGrid);
@@ -192,10 +192,12 @@ begin
     AdFiles[0] := GetParamValue('AdHeaderFile01');
     AdFiles[1] := GetParamValue('AdFooterFile01');
     AdFiles[2] := GetParamValue('AdFooterFile02');
+    AdFiles[3] := GetParamValue('AdFooterFile03');
     if AdFiles[1] = '' then
     begin
       AdFiles[1] := AdFiles[2];
-      AdFiles[2] := '';
+      AdFiles[2] := AdFiles[3];
+      AdFiles[3] := '';
     end;
 
     LotteryOffset := StrToInt(GetParamValue('LotteryOffset'));
@@ -545,16 +547,28 @@ begin
         dmMain.ApplyOrderDetails(currentOrderId);
 
         clientPages := 0;
-        if (appParams.PrintedTickets and PT_CLIENTTICKET) = PT_CLIENTTICKET then
+//        if (appParams.PrintedTickets and PT_CLIENTTICKET) = PT_CLIENTTICKET then
+//        begin
+//          Inc(clientPages);
+//          CreateClientTicket(Self);
+//          frmClientTicket.PrepareTicketPrint(currentOrderId, false, appParams);
+//          if (dmMain.TestMode and TM_PRINTPREVIEW) = TM_PRINTPREVIEW then
+//            frmClientTicket.PreviewTicket
+//          else
+//            frmClientTicket.PrintTicket;
+//          ReleaseClientTicket;
+//        end;
+
+        if (appParams.PrintedTickets and PT_ADTICKET) = PT_ADTICKET then
         begin
-          clientPages := 1;
-          CreateClientTicket(Self);
-          frmClientTicket.PrepareTicketPrint(currentOrderId, false, appParams);
+          Inc(clientPages);
+          CreateAdTicket(Self);
+          frmAdTicket.PrepareTicketPrint(currentOrderId, false, appParams);
           if (dmMain.TestMode and TM_PRINTPREVIEW) = TM_PRINTPREVIEW then
-            frmClientTicket.PreviewTicket
+            frmAdTicket.PreviewTicket
           else
-            frmClientTicket.PrintTicket;
-          ReleaseClientTicket;
+            frmAdTicket.PrintTicket;
+          ReleaseAdTicket;
         end;
 
         if (appParams.PrintedTickets and PT_KITCHENTICKETS) = PT_KITCHENTICKETS then

@@ -6,7 +6,7 @@ uses
   udmMain in 'udmMain.pas' {dmMain: TDataModule},
   uLogin in 'uLogin.pas' {frmLogin},
   uPay in 'uPay.pas' {frmPay},
-  uClientTicket in 'uClientTicket.pas' {frmClientTicket},
+  uAdTicket in 'uAdTicket.pas' {frmAdTicket},
   uPrintTicket in 'uPrintTicket.pas' {frmPrintTicket},
   uStats in 'uStats.pas' {frmStats},
   uPrintStats in 'uPrintStats.pas' {frmPrintStats},
@@ -18,7 +18,8 @@ uses
   uItemGroups in 'uItemGroups.pas' {frmItemGroups},
   uCommon in 'uCommon.pas',
   uEnv in 'uEnv.pas',
-  uEnvDev in 'uEnvDev.pas';
+  uEnvDev in 'uEnvDev.pas',
+  uClientTicket in 'uClientTicket.pas' {frmClientTicket};
 
 {$R *.res}
 
@@ -27,5 +28,6 @@ begin
   Application.Title := 'dPOS - Point Of Sales System';
   Application.CreateForm(TdmMain, dmMain);
   Application.CreateForm(TfrmPOS, frmPOS);
+  Application.CreateForm(TfrmClientTicket, frmClientTicket);
   Application.Run;
 end.

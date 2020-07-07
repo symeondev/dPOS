@@ -13,7 +13,7 @@ const
 
   // Advertisement
   AD_HEADERCOUNT        = 1;
-  AD_FOOTERCOUNT        = 2;
+  AD_FOOTERCOUNT        = 3;
   AD_COUNT              = AD_HEADERCOUNT + AD_FOOTERCOUNT;
   // Test mode
   TM_PRINTPREVIEW       = $01;
@@ -21,6 +21,7 @@ const
   // Printed tickets
   PT_CLIENTTICKET       = $01;
   PT_KITCHENTICKETS     = $02;
+  PT_ADTICKET           = $04;
   PT_PIXELSPERMM        = 4.5;
   // User levels
   UL_ADMINISTRATOR      = 0;
