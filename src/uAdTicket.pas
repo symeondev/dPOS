@@ -23,6 +23,7 @@ type
     lSponsors: TQRLabel;
     iAdHeader01: TQRImage;
     iAdFooter02: TQRImage;
+    iAdFooter03: TQRImage;
     lLottery: TQRLabel;
     lLotteryNumbers: TQRLabel;
     tLotteryFrom: TQRDBText;
@@ -31,14 +32,11 @@ type
     iInfo: TQRImage;
     dbAdTicket: TDatabase;
     bDetail: TQRBand;
-    iAdFooter03: TQRImage;
   private
     function qPrintCommand(orderId: Integer): String;
     procedure LotteryControls(show: Boolean);
     procedure InfoControl(infoFile: String; infoHeight: Integer);
     procedure AdControls(adFiles: TFileArray);
-    function PrintedCode(code: String): String;
-    function SeparateString(s, sep: String; count: Integer): String;
   public
     procedure PrepareTicketPrint(orderId: Integer; isCopy: Boolean; p: TAppParams);
     procedure PrintTicket;
@@ -56,9 +54,6 @@ implementation
 
 {$R *.dfm}
 
-const
-  translate: array[1..24] of Integer =
-    (24, 9, 14, 10, 7, 8, 21, 1, 3, 11, 2, 12, 5, 23, 4, 6, 16, 17, 20, 18, 19, 22, 13, 15);
 
 procedure CreateAdTicket(AnOwner: TComponent);
 begin
@@ -101,6 +96,7 @@ begin
     lSponsors.Top := lSponsors.Top - diff;
     iAdFooter01.Top := iAdFooter01.Top - diff;
     iAdFooter02.Top := iAdFooter02.Top - diff;
+    iAdFooter03.Top := iAdFooter03.Top - diff;
     lThanks.Top := lThanks.Top - diff;
     lCode.Top := lCode.Top - diff;
     shBottomLine.Top := shBottomLine.Top - diff;
@@ -122,6 +118,7 @@ begin
   lSponsors.Top := lSponsors.Top - diff;
   iAdFooter01.Top := iAdFooter01.Top - diff;
   iAdFooter02.Top := iAdFooter02.Top - diff;
+  iAdFooter03.Top := iAdFooter03.Top - diff;
   lThanks.Top := lThanks.Top - diff;
   lCode.Top := lCode.Top - diff;
   shBottomLine.Top := shBottomLine.Top - diff;
@@ -179,12 +176,10 @@ begin
     shBottomLine.Top := shBottomLine.Top - diff;
     bFooter.Height := bFooter.Height - diff;
   end;
-  lSponsors.Enabled := iAdFooter01.Enabled or iAdFooter02.Enabled;
+  lSponsors.Enabled := iAdFooter01.Enabled or iAdFooter02.Enabled or iAdFooter03.Enabled;
 end;
 
 procedure TfrmAdTicket.PrepareTicketPrint(orderId: Integer; isCopy: Boolean; p: TAppParams);
-var
-  uniqueCode: String;
 begin
   if qAdTicket.Active then qAdTicket.Close;
   if dbAdTicket.Connected then dbAdTicket.Close;
@@ -192,17 +187,10 @@ begin
   dbAdTicket.Open;
   qAdTicket.Open;
 
-  uniqueCode := Format('%6.6d%12.12d%4.4d%2.2d',
-    [
-      qAdTicket.FieldByName('OrderId').AsInteger,
-      Round(qAdTicket.FieldByName('PrintedAt').AsFloat * 1000000),
-      Round(qAdTicket.FieldByName('TotalAmount').AsFloat * 10),
-      qAdTicket.RecordCount
-    ]);
   lCopy.Enabled := isCopy;
   lCompanyName.Caption := p.CompanyName;
   lEventName.Caption := p.EventName;
-  lCode.Caption := PrintedCode(uniqueCode);
+  lCode.Caption := PrintedCode(ProduceUniqueCode(qAdTicket), ' ', 4, p.ShuffleTicketCode <> 0);
   tLotteryFrom.Mask := p.LotteryFormat;
   tLotteryTo.Mask := p.LotteryFormat;
 
@@ -211,31 +199,6 @@ begin
   LotteryControls((qAdTicket.FieldByName('LotteryFrom').AsInteger <> 0) or (qAdTicket.FieldByName('LotteryTo').AsInteger <> 0));
 
   qrAdTicket.Height := bHeader.Height + bDetail.Height * qAdTicket.RecordCount + bFooter.Height;
-end;
-
-function TfrmAdTicket.PrintedCode(code: String): String;
-var
-  i: Integer;
-  temp: String;
-begin
-  temp := '';
-  for i := 1 to 24 do
-    temp := temp + code[translate[i]];
-  Result := SeparateString(temp, ' ', 4);
-end;
-
-function TfrmAdTicket.SeparateString(s, sep: String; count: Integer): String;
-var
-  i: Integer;
-begin
-  Result := '';
-  i := 1;
-  while i <= Length(s) do
-  begin
-    Result := Result + Copy(s, i, count) + sep;
-    i := i + count;
-  end;
-  Delete(Result, Length(Result) - Length(sep) + 1, Length(sep));
 end;
 
 procedure TfrmAdTicket.PrintTicket;

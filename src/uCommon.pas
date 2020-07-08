@@ -77,6 +77,7 @@ type
     LotteryFormat: String;
     LotteryTicketsPerEuro: Integer;
     LotteryMethod: Integer;
+    ShuffleTicketCode: Integer;
   private
     function qParamCommand(paramName: String): String;
   public

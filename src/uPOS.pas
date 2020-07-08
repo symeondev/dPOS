@@ -204,6 +204,7 @@ begin
     LotteryFormat := GetParamValue('LotteryFormat');
     LotteryTicketsPerEuro := StrToInt(GetParamValue('LotteryTicketsPerEuro'));
     LotteryMethod := StrToInt(GetParamValue('LotteryMethod'));
+    ShuffleTicketCode := StrToInt(GetParamValue('ShuffleTicketCode'));
   end;
 end;
 

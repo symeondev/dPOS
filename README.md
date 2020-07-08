@@ -7,6 +7,10 @@
 - Add more options in statistics report (averages per order and per date, line count, group count, ...)
 - Pricelists per date and product
 
+### 2.3.1 - Date: 08/07/2020
+Added feature:
+- Print client and/or advertisement and/or kitchen tickets choise
+
 ### 2.3 - Date: 23/03/2020
 - Main form
 - Login form
