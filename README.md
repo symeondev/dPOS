@@ -3,10 +3,6 @@
 © 2019-2020 Simeonidis Dimitrios
 
 
-[To do] - Date: 17/06/2020
-- Add more options in statistics report (averages per order and per date, line count, group count, ...)
-- Pricelists per date and product
-
 ### 2.3.1 - Date: 08/07/2020
 Added feature:
 - Print client and/or advertisement and/or kitchen tickets choise
@@ -100,3 +96,8 @@ Features:
 - Login form
 - Pay order form
 - Print kitchen tickets
+
+
+[To do] - Date: 17/06/2020
+- Add more options in statistics report (averages per order and per date, line count, group count, ...)
+- Pricelists per date and product
