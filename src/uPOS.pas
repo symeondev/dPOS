@@ -199,6 +199,7 @@ begin
       AdFiles[2] := AdFiles[3];
       AdFiles[3] := '';
     end;
+    RotateAds := StrToInt(GetParamValue('RotateAds'));
 
     LotteryOffset := StrToInt(GetParamValue('LotteryOffset'));
     LotteryFormat := GetParamValue('LotteryFormat');

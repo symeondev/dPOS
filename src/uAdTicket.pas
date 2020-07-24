@@ -90,6 +90,7 @@ begin
   lLotteryNumbers.Enabled := show;
   tLotteryFrom.Enabled := show;
   tLotteryTo.Enabled := show;
+  lCode.Enabled := show;
   if not show then
   begin
     iInfo.Top := iInfo.Top - diff;
@@ -195,6 +196,8 @@ begin
   tLotteryTo.Mask := p.LotteryFormat;
 
   AdControls(p.AdFiles);
+  if p.RotateAds = 1 then
+    p.RotateAdFiles;
   InfoControl(p.InfoFile, p.InfoHeight);
   LotteryControls((qAdTicket.FieldByName('LotteryFrom').AsInteger <> 0) or (qAdTicket.FieldByName('LotteryTo').AsInteger <> 0));
 

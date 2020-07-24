@@ -72,6 +72,7 @@ type
     InfoHeight: Integer;
     // Ads
     AdFiles: TFileArray;
+    RotateAds: Integer;
     // Lottery
     LotteryOffset: Integer;
     LotteryFormat: String;
@@ -82,6 +83,7 @@ type
     function qParamCommand(paramName: String): String;
   public
     function GetParamValue(paramName: String): String;
+    procedure RotateAdFiles;
   end;
 
 var
@@ -114,6 +116,17 @@ begin
   from := ' FROM Params';
   where := ' WHERE ParamName = ''' + paramName + '''';
   Result := select + from + where;
+end;
+
+procedure TAppParams.RotateAdFiles;
+var
+  i: Integer;
+  temp: String;
+begin
+  temp := AdFiles[0];
+  for i := 1 to AD_COUNT - 1 do
+    AdFiles[i - 1] := AdFiles[i];
+  AdFiles[AD_COUNT - 1] := temp;
 end;
 
 
