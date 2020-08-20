@@ -3,9 +3,14 @@
 © 2019-2020 Simeonidis Dimitrios
 
 
+### 2.3.2 - Date: 20/08/2020
+Added feature:
+- Rotate ads order in advertisement tickets option
+- Print ticket code in advertisement ticket option
+
 ### 2.3.1 - Date: 08/07/2020
 Added feature:
-- Print client and/or advertisement and/or kitchen tickets choise
+- Print client and/or advertisement and/or kitchen tickets option
 
 ### 2.3 - Date: 23/03/2020
 - Main form
@@ -26,7 +31,7 @@ Features:
 - Lottery module
 - Backup database
 - Test mode
-- Print client and/or kitchen tickets choise
+- Print client and/or kitchen tickets option
 - 3 user levels (Cashiers, Cashier managers, Administrators)
 - Dynamically create UI (admin menu, logo and item groups and buttons)
 
