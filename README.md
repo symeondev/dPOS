@@ -4,7 +4,7 @@
 
 
 ### 2.3.2 - Date: 20/08/2020
-Added feature:
+Added features:
 - Rotate ads order in advertisement tickets option
 - Print ticket code in advertisement ticket option
 
